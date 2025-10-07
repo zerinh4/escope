@@ -1,6 +1,6 @@
 package util
 
-import "escope/internal/util"
+import "github.com/mertbahardogan/escope/internal/util"
 
 func FormatBytes(bytes int64) string {
 	return util.FormatBytes(bytes)

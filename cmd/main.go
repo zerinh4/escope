@@ -1,19 +1,19 @@
 package main
 
 import (
-	_ "escope/cmd/check"
-	_ "escope/cmd/cluster"
-	_ "escope/cmd/config"
-	"escope/cmd/core"
-	_ "escope/cmd/index"
-	_ "escope/cmd/lucene"
-	_ "escope/cmd/node"
-	_ "escope/cmd/segments"
-	_ "escope/cmd/shard"
-	_ "escope/cmd/sort"
-	_ "escope/cmd/system"
-	_ "escope/cmd/termvectors"
-	_ "escope/cmd/version"
+	_ "github.com/mertbahardogan/escope/cmd/check"
+	_ "github.com/mertbahardogan/escope/cmd/cluster"
+	_ "github.com/mertbahardogan/escope/cmd/config"
+	"github.com/mertbahardogan/escope/cmd/core"
+	_ "github.com/mertbahardogan/escope/cmd/index"
+	_ "github.com/mertbahardogan/escope/cmd/lucene"
+	_ "github.com/mertbahardogan/escope/cmd/node"
+	_ "github.com/mertbahardogan/escope/cmd/segments"
+	_ "github.com/mertbahardogan/escope/cmd/shard"
+	_ "github.com/mertbahardogan/escope/cmd/sort"
+	_ "github.com/mertbahardogan/escope/cmd/system"
+	_ "github.com/mertbahardogan/escope/cmd/termvectors"
+	_ "github.com/mertbahardogan/escope/cmd/version"
 )
 
 func main() {

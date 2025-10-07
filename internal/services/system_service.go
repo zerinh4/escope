@@ -2,10 +2,10 @@ package services
 
 import (
 	"context"
-	"escope/internal/interfaces"
-	"escope/internal/models"
-	"escope/internal/util"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/interfaces"
+	"github.com/mertbahardogan/escope/internal/models"
+	"github.com/mertbahardogan/escope/internal/util"
 )
 
 type SystemService interface {

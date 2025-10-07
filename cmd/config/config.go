@@ -1,11 +1,11 @@
 package config
 
 import (
-	"escope/cmd/core"
-	"escope/internal/config"
-	"escope/internal/constants"
-	"escope/internal/services"
 	"fmt"
+	"github.com/mertbahardogan/escope/cmd/core"
+	"github.com/mertbahardogan/escope/internal/config"
+	"github.com/mertbahardogan/escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/services"
 	"github.com/spf13/cobra"
 	"strconv"
 )

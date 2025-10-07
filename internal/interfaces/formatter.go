@@ -1,7 +1,7 @@
 package interfaces
 
 import (
-	"escope/internal/models"
+	"github.com/mertbahardogan/escope/internal/models"
 )
 
 type GCFormatter interface {

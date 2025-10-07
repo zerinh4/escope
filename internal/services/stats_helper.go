@@ -1,6 +1,6 @@
 package services
 
-import "escope/internal/constants"
+import "github.com/mertbahardogan/escope/internal/constants"
 
 func parseIndexStatsData(statsData map[string]interface{}) map[string]map[string]interface{} {
 	result := make(map[string]map[string]interface{})

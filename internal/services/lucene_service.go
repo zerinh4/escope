@@ -2,10 +2,10 @@ package services
 
 import (
 	"context"
-	"escope/internal/constants"
-	"escope/internal/interfaces"
-	"escope/internal/models"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/interfaces"
+	"github.com/mertbahardogan/escope/internal/models"
 )
 
 type LuceneService interface {

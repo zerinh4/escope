@@ -1,8 +1,8 @@
 package version
 
 import (
-	"escope/internal/constants"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/constants"
 	"github.com/spf13/cobra"
 )
 

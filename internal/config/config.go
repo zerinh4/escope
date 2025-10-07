@@ -1,7 +1,7 @@
 package config
 
 import (
-	"escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/constants"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path/filepath"

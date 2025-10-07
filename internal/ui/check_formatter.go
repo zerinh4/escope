@@ -1,8 +1,8 @@
 package ui
 
 import (
-	"escope/internal/models"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/models"
 )
 
 type CheckFormatter struct{}

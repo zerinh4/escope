@@ -2,10 +2,10 @@ package core
 
 import (
 	"context"
-	"escope/cmd/version"
-	"escope/internal/connection"
-	"escope/internal/constants"
 	"fmt"
+	"github.com/mertbahardogan/escope/cmd/version"
+	"github.com/mertbahardogan/escope/internal/connection"
+	"github.com/mertbahardogan/escope/internal/constants"
 	"github.com/spf13/cobra"
 )
 

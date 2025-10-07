@@ -3,9 +3,9 @@ package elastic
 import (
 	"context"
 	"encoding/json"
-	"escope/internal/interfaces"
-	"escope/internal/util"
 	"github.com/elastic/go-elasticsearch/v8"
+	"github.com/mertbahardogan/escope/internal/interfaces"
+	"github.com/mertbahardogan/escope/internal/util"
 	"io"
 	"strings"
 )

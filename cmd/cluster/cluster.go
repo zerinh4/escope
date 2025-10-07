@@ -3,15 +3,15 @@ package cluster
 import (
 	"context"
 	"errors"
-	"escope/cmd/core"
-	"escope/internal/connection"
-	"escope/internal/constants"
-	"escope/internal/elastic"
-	"escope/internal/models"
-	"escope/internal/services"
-	"escope/internal/ui"
-	"escope/internal/util"
 	"fmt"
+	"github.com/mertbahardogan/escope/cmd/core"
+	"github.com/mertbahardogan/escope/internal/connection"
+	"github.com/mertbahardogan/escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/elastic"
+	"github.com/mertbahardogan/escope/internal/models"
+	"github.com/mertbahardogan/escope/internal/services"
+	"github.com/mertbahardogan/escope/internal/ui"
+	"github.com/mertbahardogan/escope/internal/util"
 	"github.com/spf13/cobra"
 )
 

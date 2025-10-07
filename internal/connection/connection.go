@@ -2,10 +2,10 @@ package connection
 
 import (
 	"context"
-	"escope/internal/config"
-	"escope/internal/elastic"
 	"fmt"
 	"github.com/elastic/go-elasticsearch/v8"
+	"github.com/mertbahardogan/escope/internal/config"
+	"github.com/mertbahardogan/escope/internal/elastic"
 	"sync"
 	"time"
 )

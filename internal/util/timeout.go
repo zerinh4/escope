@@ -2,8 +2,8 @@ package util
 
 import (
 	"context"
-	"escope/internal/config"
-	"escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/config"
+	"github.com/mertbahardogan/escope/internal/constants"
 	"time"
 )
 

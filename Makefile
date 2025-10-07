@@ -17,7 +17,7 @@ GOGET=$(GOCMD) get
 GOMOD=$(GOCMD) mod
 
 # Build flags
-LDFLAGS=-ldflags "-X escope/internal/constants.Version=$(VERSION)"
+LDFLAGS=-ldflags "-X github.com/mertbahardogan/escope/internal/constants.Version=$(VERSION)"
 
 # Version (can be overridden)
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")

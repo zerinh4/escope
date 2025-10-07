@@ -2,10 +2,10 @@ package services
 
 import (
 	"errors"
-	"escope/internal/config"
-	"escope/internal/connection"
-	"escope/internal/constants"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/config"
+	"github.com/mertbahardogan/escope/internal/connection"
+	"github.com/mertbahardogan/escope/internal/constants"
 	"os"
 )
 

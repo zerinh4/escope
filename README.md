@@ -20,7 +20,7 @@ A powerful command-line interface tool for Elasticsearch cluster diagnostics and
 ## Installation
 
 ```bash
-go install github.com/mertbahardogan/escope@latest
+go install github.com/mertbahardogan/escope/cmd@latest
 ```
 
 ## Quick Start
@@ -276,16 +276,16 @@ escope lucene
 # ┌──────────┬──────────────┬──────────────┬───────────────┬───────────┬──────────────────────┐
 # │ Segments │ Total Memory │ Terms Memory │ Stored Memory │ DocValues │ Index                │
 # ├──────────┼──────────────┼──────────────┼───────────────┼───────────┼──────────────────────┤
-# │ 10       │ 359.1kb      │ 0b           │ 0b            │ 0b        │ offer_tr-tr_v20250403│
-# │ 2        │ 45.3kb       │ 0b           │ 0b            │ 0b        │ offer_tr-az_v20250403│
+# │ 10       │ 359.1kb      │ 0b           │ 0b            │ 0b        │ indexName1           │
+# │ 2        │ 45.3kb       │ 0b           │ 0b            │ 0b        │ indexName2           │
 # └──────────┴──────────────┴──────────────┴───────────────┴───────────┴──────────────────────┘
 
 # Detailed memory breakdown for specific index
-escope lucene --name offer_tr-tr_v20250403
+escope lucene --name indexName
 # Output:
 # [Table showing index]
 #
-# # Index: offer_tr-tr_v20250403
+# # Index: indexName
 #    Segments: 10
 #    Total Memory: 359.1kb
 #    Index Memory: 
@@ -304,8 +304,8 @@ escope segments
 # ┌──────────┬────────────┬──────────────┬──────────────────────────┐
 # │ Segments │ Total Size │ Avg Size/Seg │ Index                    │
 # ├──────────┼────────────┼──────────────┼──────────────────────────┤
-# │ 24       │ 38mb       │ 1.6mb        │ storeads_tr-az_v20250923 │
-# │ 10       │ 373mb      │ 37mb         │ offer_tr-tr_v20250403    │
+# │ 24       │ 38mb       │ 1.6mb        │ indexName1               │
+# │ 10       │ 373mb      │ 37mb         │ indexName2               │
 # └──────────┴────────────┴──────────────┴──────────────────────────┘
 
 # Analyze term vectors for a document

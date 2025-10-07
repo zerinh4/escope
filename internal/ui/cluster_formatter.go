@@ -1,9 +1,9 @@
 package ui
 
 import (
-	"escope/internal/models"
-	"escope/internal/util"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/models"
+	"github.com/mertbahardogan/escope/internal/util"
 	"strings"
 )
 

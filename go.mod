@@ -1,4 +1,4 @@
-module escope
+module github.com/mertbahardogan/escope
 
 go 1.24.0
 

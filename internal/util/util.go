@@ -1,9 +1,9 @@
 package util
 
 import (
-	"escope/internal/constants"
-	"escope/internal/models"
 	"fmt"
+	"github.com/mertbahardogan/escope/internal/constants"
+	"github.com/mertbahardogan/escope/internal/models"
 	"strconv"
 	"strings"
 )
