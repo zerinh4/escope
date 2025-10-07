@@ -34,6 +34,6 @@ jobs:
       run: go mod download
 
     - name: Build
-      run: go build -v -o escope .
+      run: go build -v -o escope ./cmd
 
 
