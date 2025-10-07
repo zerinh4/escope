@@ -37,7 +37,7 @@ jobs:
       run: go mod download
 
     - name: Build
-      run: go build -v -o escope ./cmd
+      run: go build -v -o escope .
 
   security:
     name: Security

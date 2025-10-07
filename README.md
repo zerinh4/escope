@@ -20,7 +20,7 @@ A powerful command-line interface tool for Elasticsearch cluster diagnostics and
 ## Installation
 
 ```bash
-go install github.com/mertbahardogan/escope/cmd@latest
+go install github.com/mertbahardogan/escope@latest
 ```
 
 ## Quick Start
