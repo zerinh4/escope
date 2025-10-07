@@ -30,7 +30,7 @@ all: clean build
 # Build the application
 build:
 	@echo "Building $(BINARY_NAME)..."
-	$(GOBUILD) $(LDFLAGS) -o $(BINARY_NAME) .
+	$(GOBUILD) $(LDFLAGS) -o $(BINARY_NAME) ./cmd
 	@echo "Build complete: $(BINARY_NAME)"
 
 # Clean build artifacts
@@ -78,7 +78,7 @@ dev:
 # Create release build
 release: clean
 	@echo "Creating release build..."
-	CGO_ENABLED=0 $(GOBUILD) -a -installsuffix cgo -o $(BINARY_NAME) .
+	CGO_ENABLED=0 $(GOBUILD) -a -installsuffix cgo -o $(BINARY_NAME) ./cmd
 	@echo "Release build complete"
 
 
