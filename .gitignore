@@ -1,0 +1,93 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+escope
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build and dist directories
+build/
+dist/
+bin/
+
+# Log files
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Elasticsearch specific
+*.esbackup
+*.esdump
+
+# Configuration files with sensitive data
+config.json
+config.yaml
+config.yml
+*.conf
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Coverage reports
+coverage.txt
+coverage.html
+
+# Profiling data
+*.prof
+*.pprof
+
+# Go specific
+*.o
+*.a
+*.so
+
+# Debug files
+debug
+debug.test
+
+# Local development files
+local/
+dev/ 

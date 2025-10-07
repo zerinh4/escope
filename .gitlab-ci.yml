@@ -1,0 +1,48 @@
+stages:
+  - cleanup
+  - build
+  - deploy
+
+variables:
+  GO_VERSION: "1.24"
+  CGO_ENABLED: 0
+
+cleanup:
+  stage: cleanup
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache curl jq
+  script:
+    - echo "Cleaning up old artifacts..."
+    - |
+      # Get project ID
+      PROJECT_ID=$(echo $CI_PROJECT_URL | sed 's/.*\/\([0-9]*\)$/\1/')
+      
+      # Get old artifacts (older than 7 days)
+      OLD_ARTIFACTS=$(curl -s --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" \
+        "$CI_API_V4_URL/projects/$PROJECT_ID/jobs/artifacts" | \
+        jq -r '.[] | select(.created_at < "'$(date -d '7 days ago' -Iseconds)'") | .id')
+      
+      # Delete old artifacts
+      for artifact_id in $OLD_ARTIFACTS; do
+        echo "Deleting artifact $artifact_id"
+        curl -s --request DELETE --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" \
+          "$CI_API_V4_URL/projects/$PROJECT_ID/jobs/$artifact_id/artifacts" || true
+      done
+  when: manual
+  allow_failure: true
+
+build:
+  stage: build
+  image: golang:${GO_VERSION}-alpine
+  before_script:
+    - apk add --no-cache git make
+  script:
+    - go mod download
+    - go build -o escope main.go
+  artifacts:
+    paths:
+      - escope
+    expire_in: 1 hour
+    reports:
+      dotenv: build.env
