@@ -1,10 +1,9 @@
 # Escope - Elasticsearch CLI Tool
 
-A powerful command-line interface tool for Elasticsearch cluster diagnostics and monitoring.
+**Escope** - Your Elasticsearch cluster at your fingertips! 🚀 A powerful command-line interface tool for Elasticsearch cluster diagnostics and monitoring.
 
 ## Features
 
-- 🔄 **Broad Compatibility** - Works with Elasticsearch 7.0.0+ (including 9.0+)
 - ⚙️ **Configuration Management** - Save, view, and manage connection settings
 - 🔍 **Cluster Health Monitoring** - Quick health status overview with detailed node information
 - 📊 **Node Information** - Detailed node metrics and health summary
@@ -17,11 +16,22 @@ A powerful command-line interface tool for Elasticsearch cluster diagnostics and
 - 🔧 **System Information Access** - Dedicated commands for viewing system indices and shards
 - ⏱️ **Configurable Timeout** - 3-second timeout for all external API calls
 
+## Requirements
+
+- **Go 1.24.0+** - Required for building and running the application
+- **Elasticsearch 7.0.0+** - Compatible with Elasticsearch versions 7.0.0 and above (including 9.0+)
+- **Network Access** - Access to your Elasticsearch cluster endpoints
+- **Authentication** - Valid credentials for your Elasticsearch cluster (if authentication is enabled)
+
 ## Installation
 
 ```bash
 go install github.com/mertbahardogan/escope@latest
 ```
+
+After running the installation command, ensure your Go bin directory is included in your system's PATH so you can run `escope` from any location.
+
+Once installed, Escope is ready to use. If no configuration exists, the tool will provide helpful setup instructions when you first run it.
 
 ## Quick Start
 
@@ -56,7 +66,6 @@ escope
 | `escope lucene` | `--name=<index>`                                                 | Lucene segment analysis and memory breakdown (detailed with --name flag) |
 | `escope segments` | -                                                                | Segment count and size analysis per index |
 | `escope termvectors` | `[index] [document_id] [term] --fields`                        | Analyze term vectors and search for specific terms in document fields |
-| `escope version` | -                                                                | Show current version information |
 
 ## Configuration
 
@@ -370,7 +379,3 @@ For issues and questions:
 - Create an issue on GitHub
 - Check existing issues for solutions
 - Review the documentation
-
----
-
-**Escope** - Your Elasticsearch cluster at your fingertips! 🚀

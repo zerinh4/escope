@@ -3,7 +3,6 @@ package core
 import (
 	"context"
 	"fmt"
-	"github.com/mertbahardogan/escope/cmd/version"
 	"github.com/mertbahardogan/escope/internal/connection"
 	"github.com/mertbahardogan/escope/internal/constants"
 	"github.com/spf13/cobra"
@@ -48,7 +47,7 @@ var RootCmd = &cobra.Command{
 }
 
 func validateConfig(cmd *cobra.Command) error {
-	if cmd.Name() == "config" || cmd.Name() == "clear" || cmd.Name() == "version" ||
+	if cmd.Name() == "config" || cmd.Name() == "clear" ||
 		(cmd.Parent() != nil && cmd.Parent().Name() == "config") {
 		return nil
 	}
@@ -129,7 +128,6 @@ func init() {
 	RootCmd.PersistentFlags().BoolVar(&secure, "secure", false, "Connect with username and password (default: false)")
 	RootCmd.PersistentFlags().StringVarP(&alias, "alias", "a", "", "Use a saved host alias instead of specifying connection details")
 
-	version.NewVersionCommand(RootCmd)
 }
 
 func Execute() {

@@ -16,11 +16,6 @@ GOCLEAN=$(GOCMD) clean
 GOGET=$(GOCMD) get
 GOMOD=$(GOCMD) mod
 
-# Build flags
-LDFLAGS=-ldflags "-X github.com/mertbahardogan/escope/internal/constants.Version=$(VERSION)"
-
-# Version (can be overridden)
-VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 
 .PHONY: all build clean deps fmt lint help install run test-commands
 
@@ -30,7 +25,7 @@ all: clean build
 # Build the application
 build:
 	@echo "Building $(BINARY_NAME)..."
-	$(GOBUILD) $(LDFLAGS) -o $(BINARY_NAME) .
+	$(GOBUILD) -o $(BINARY_NAME) .
 	@echo "Build complete: $(BINARY_NAME)"
 
 # Clean build artifacts
@@ -88,8 +83,8 @@ test-commands: build
 	@echo "1. Testing root command (connection check)..."
 	-./$(BINARY_NAME) --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
 	@echo ""
-	@echo "2. Testing version command..."
-	-./$(BINARY_NAME) version
+	@echo "2. Testing basic commands..."
+	-./$(BINARY_NAME) --help
 	@echo ""
 	@echo "3. Testing config commands..."
 	-./$(BINARY_NAME) config list

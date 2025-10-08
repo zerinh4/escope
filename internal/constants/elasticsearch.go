@@ -1,9 +1,5 @@
 package constants
 
-var (
-	Version = "dev"
-)
-
 const (
 	DefaultInterval = 2
 	MinInterval     = 1
