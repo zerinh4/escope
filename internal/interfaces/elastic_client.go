@@ -25,6 +25,8 @@ type ElasticClient interface {
 
 	GetTermvectors(ctx context.Context, indexName, documentID string, fields []string) (map[string]interface{}, error)
 
+	GetAnalyze(ctx context.Context, analyzerName, text string, analyzeType string) (map[string]interface{}, error)
+
 	Ping(ctx context.Context) error
 	GetClient() *elasticsearch.Client
 }

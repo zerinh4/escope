@@ -434,6 +434,48 @@ func (cw *ClientWrapper) GetShardsWithSort(ctx context.Context, sortBy, sortOrde
 	return processedShards, nil
 }
 
+func (cw *ClientWrapper) GetAnalyze(ctx context.Context, analyzerName, text string, analyzeType string) (map[string]interface{}, error) {
+	var requestBody map[string]interface{}
+	
+	if analyzeType == "analyzer" {
+		requestBody = map[string]interface{}{
+			"analyzer": analyzerName,
+			"text":     text,
+		}
+	} else if analyzeType == "tokenizer" {
+		requestBody = map[string]interface{}{
+			"tokenizer": analyzerName,
+			"text":      text,
+		}
+	} else {
+		requestBody = map[string]interface{}{
+			"text": text,
+		}
+	}
+
+	bodyBytes, err := json.Marshal(requestBody)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := cw.client.Indices.Analyze(
+		cw.client.Indices.Analyze.WithBody(strings.NewReader(string(bodyBytes))),
+		cw.client.Indices.Analyze.WithContext(ctx),
+	)
+
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	var result map[string]interface{}
+	if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func buildSortParam(sortBy, sortOrder string) string {
 	sortParam := sortBy
 	if sortOrder != "" && sortOrder != "asc" {
