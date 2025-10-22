@@ -14,6 +14,7 @@
 - 🔄 **Smart Sorting** - Sort shards and indices by any field with automatic type detection
 - 🛡️ **System Index Filtering** - Automatically hides Elasticsearch system indices
 - 🔧 **System Information Access** - Dedicated commands for viewing system indices and shards
+- 🔬 **Text Analysis** - Analyze text using Elasticsearch analyzers and tokenizers
 - ⏱️ **Configurable Timeout** - 3-second timeout for all external API calls
 
 ## Requirements
@@ -65,6 +66,7 @@ escope
 | `escope shard` | `dist`, `system`, `sort`                                         | Shard analysis, distribution grid, and system shards |
 | `escope lucene` | `--name=<index>`                                                 | Lucene segment analysis and memory breakdown (detailed with --name flag) |
 | `escope segments` | -                                                                | Segment count and size analysis per index |
+| `escope analyze` | `[analyzer_name] [text] --type`                                  | Analyze text using Elasticsearch analyzer or tokenizer |
 | `escope termvectors` | `[index] [document_id] [term] --fields`                        | Analyze term vectors and search for specific terms in document fields |
 
 ## Configuration
@@ -317,6 +319,27 @@ escope segments
 # │ 10       │ 373mb      │ 37mb         │ indexName2               │
 # └──────────┴────────────┴──────────────┴──────────────────────────┘
 
+# Analyze text using an analyzer
+escope analyze standard "Hello World"
+# Output:
+# +----------+------------+-------+-----+-------+
+# | Position | Type       | Start | End | Token |
+# +----------+------------+-------+-----+-------+
+# | 0        | <ALPHANUM> | 0     | 5   | hello |
+# | 1        | <ALPHANUM> | 6     | 11  | world |
+# +----------+------------+-------+-----+-------+
+
+# Analyze text with a tokenizer
+escope analyze whitespace "Hello World Test" --type tokenizer
+# Output:
+# +----------+------+-------+-----+-------+
+# | Position | Type | Start | End | Token |
+# +----------+------+-------+-----+-------+
+# | 0        | word | 0     | 5   | Hello |
+# | 1        | word | 6     | 11  | World |
+# | 2        | word | 12    | 16  | Test  |
+# +----------+------+-------+-----+-------+
+
 # Analyze term vectors for a document
 escope termvectors my-index doc123 --fields content,title
 # Output:
@@ -376,6 +399,6 @@ MIT License - see LICENSE file for details.
 ## Support
 
 For issues and questions:
-- Create an issue on GitHub
 - Check existing issues for solutions
+- Create an issue on GitHub
 - Review the documentation

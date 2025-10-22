@@ -102,67 +102,73 @@ test-commands: build
 	-./$(BINARY_NAME) config switch $(ACTIVE_HOST)
 	@echo ""
 	@echo "4. Testing cluster command..."
-	-./$(BINARY_NAME) cluster --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) cluster
 	@echo ""
 	@echo "5. Testing check command..."
-	-./$(BINARY_NAME) check --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) check
 	@echo ""
 	@echo "5b. Testing check command with duration flag..."
-	-./$(BINARY_NAME) check --duration 10s --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) check --duration 10s
 	@echo ""
 	@echo "5c. Testing check command with interval flag..."
-	-./$(BINARY_NAME) check --duration 6s --interval 2s --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) check --duration 6s --interval 2s
 	@echo ""
 	@echo "6. Testing node command..."
-	-./$(BINARY_NAME) node --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) node
 	@echo ""
 	@echo "7. Testing node gc command..."
-	-./$(BINARY_NAME) node gc --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) node gc
 	@echo ""
 	@echo "7b. Testing node gc command with name flag..."
-	-./$(BINARY_NAME) node gc --name="*" --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) node gc --name="*"
 	@echo ""
 	@echo "8. Testing index command..."
-	-./$(BINARY_NAME) index --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) index
 	@echo ""
 	@echo "8b. Testing index command with name flag..."
-	-./$(BINARY_NAME) index --name="*" --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) index --name="*"
 	@echo ""
 	@echo "8c. Testing index command with top flag..."
-	-timeout 5s ./$(BINARY_NAME) index --name="*" --top --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-timeout 5s ./$(BINARY_NAME) index --name="*" --top
 	@echo ""
 	@echo "9. Testing index system command..."
-	-./$(BINARY_NAME) index system --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) index system
 	@echo ""
 	@echo "10. Testing index sort command..."
-	-./$(BINARY_NAME) index sort size --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) index sort size
 	@echo ""
 	@echo "11. Testing shard command..."
-	-./$(BINARY_NAME) shard --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) shard
 	@echo ""
 	@echo "12. Testing shard dist command..."
-	-./$(BINARY_NAME) shard dist --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) shard dist
 	@echo ""
 	@echo "13. Testing shard system command..."
-	-./$(BINARY_NAME) shard system --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) shard system
 	@echo ""
 	@echo "14. Testing shard sort command..."
-	-./$(BINARY_NAME) shard sort size --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) shard sort size
 	@echo ""
 	@echo "15. Testing segments command..."
-	-./$(BINARY_NAME) segments --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) segments
 	@echo ""
 	@echo "16. Testing lucene command..."
-	-./$(BINARY_NAME) lucene --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) lucene
 	@echo ""
 	@echo "16b. Testing lucene command with name flag..."
-	-./$(BINARY_NAME) lucene --name="*" --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) lucene --name="*"
 	@echo ""
 	@echo "17. Testing node dist command..."
-	-./$(BINARY_NAME) node dist --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) node dist
 	@echo ""
 	@echo "18. Testing termvectors command..."
-	-./$(BINARY_NAME) termvectors test-index test-doc --fields content,title --host $(PROD_ES_HOST) --username $(PROD_ES_USER) --password "$(PROD_ES_PASS)" --secure
+	-./$(BINARY_NAME) termvectors test-index test-doc --fields content,title
+	@echo ""
+	@echo "19. Testing analyze command..."
+	-./$(BINARY_NAME) analyze standard "Hello World Test"
+	@echo ""
+	@echo "19b. Testing analyze command with tokenizer type..."
+	-./$(BINARY_NAME) analyze whitespace "Hello World Test" --type tokenizer
 	@echo ""
 	@echo "All commands tested!"
 
